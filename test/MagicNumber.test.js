@@ -1,7 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 const { expect } = require("chai");
 
-describe("Tiny", function () {
+describe("MagicNumber", function () {
   it("attacks", async () => {
     const [owner, user] = await ethers.getSigners();
 
@@ -9,10 +9,10 @@ describe("Tiny", function () {
 
     const bytecode = "600a80600e600039806000f350fe602a60005260206000f3";
 
-    const Tiny = new ethers.ContractFactory(interface, bytecode, owner);
-    const tiny = await Tiny.deploy();
-    await tiny.deployed();
+    const MagicNumber = new ethers.ContractFactory(interface, bytecode, owner);
+    const magicNumber = await MagicNumber.deploy();
+    await magicNumber.deployed();
 
-    expect(await tiny.callStatic.whatIsTheMeaningOfLife()).to.equal(42);
+    expect(await magicNumber.callStatic.whatIsTheMeaningOfLife()).to.equal(42);
   });
 });
