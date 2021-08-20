@@ -15,8 +15,6 @@ describe("Delegation", function () {
 
     expect(await delegation.owner()).to.equal(user.address);
 
-    console.log(delegate.interface);
-
     const delegated = new ethers.Contract(
       delegation.address,
       delegate.interface,
