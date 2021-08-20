@@ -12,10 +12,10 @@ describe("ForceAttack", function () {
     await force.deployed();
 
     const ForceAttack = await ethers.getContractFactory("ForceAttack");
-    const forceAttack = await ForceAttack.deploy(force.address);
+    const forceAttack = await ForceAttack.deploy();
     await forceAttack.deployed();
 
-    await forceAttack.attack({ value: 1 });
+    await forceAttack.attack(force.address, { value: 1 });
 
     expect(await getBalance(force.address)).to.equal(1);
   });
